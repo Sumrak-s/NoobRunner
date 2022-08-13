@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>NoobRunner</title>
+    <title>JSUnityTest</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">	
 
@@ -37,9 +37,9 @@
         frameworkUrl: buildUrl + "/Build.framework.js",
         codeUrl: buildUrl + "/Build.wasm",
         streamingAssetsUrl: "StreamingAssets",
-        companyName: "GSSGames",
-        productName: "NoobRunner",
-        productVersion: "0.14",
+        companyName: "DefaultCompany",
+        productName: "JSUnityTest",
+        productVersion: "1.0",
       };
 
       const container = document.querySelector("#unity-container");
@@ -94,7 +94,7 @@
       vkBridge.send('VKWebAppInit');
 
 
-      function auth(){
+      function userAuth(){
         vkBridge.send('VKWebAppGetUserInfo').then(_info =>{
             console.log(_info);
             myGameInstance.SendMessage('VKSDK', 'AuthenticateSuccess', JSON.stringify(_info));
@@ -103,9 +103,7 @@
 
       function getUserData(){
         vkBridge.send("VKWebAppStorageGet",{"keys":["_save"]}).then(data =>{
-            console.log('Load...');
             console.log(data);
-            console.log(JSON.stringify(data));
             myGameInstance.SendMessage('VKSDK', 'DataGetting', JSON.stringify(data));
       });
     }
