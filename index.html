@@ -168,6 +168,11 @@
         .catch(error => console.log(error));
       }
 
+      function joinGroup(groupId){
+        vkBridge.send("VKWebAppJoinGroup", {
+          "group_id": groupId})
+      }
+
 
       function getArrayFriends(token){
         vkBridge.send("VKWebAppCallAPIMethod", {
