@@ -147,9 +147,9 @@
         });
       }
 
-      function getAuthToken(){
+      function getAuthToken(appId){
         vkBridge.send("VKWebAppGetAuthToken", {
-          'app_id': 51396992, 
+          'app_id': appId, 
           'scope': 'friends,notify'
         }).then(data => {
           console.log('Token getted');
