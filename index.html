@@ -156,6 +156,8 @@
           console.log(data);
           myGameInstance.SendMessage('VKSDK', 'TokenReceive', JSON.stringify(data));
         }).catch(message => {
+		  console.log(message);
+		  console.log(JSON.stringify(message));
           myGameInstance.SendMessage('VKSDK', 'TokenReceive', JSON.stringify(message));
         });
       }
