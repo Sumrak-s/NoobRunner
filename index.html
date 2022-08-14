@@ -152,9 +152,11 @@
           "app_id": appId, 
           "scope": "friends"
         }).then(data => {
-          console.log('Token getted');
+          console.log('Token received');
           console.log(data);
-          myGameInstance.SendMessage('VKSDK', 'TokenGetting', JSON.stringify(data));
+          myGameInstance.SendMessage('VKSDK', 'TokenReceive', JSON.stringify(data));
+        }).catch(message => {
+          myGameInstance.SendMessage('VKSDK', 'TokenReceive', JSON.stringify(message));
         });
       }
 
