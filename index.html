@@ -134,13 +134,16 @@
         });
       }
 
-      function showWallPostBox(message, userId, mediaId, appUrl){
-        console.log('photo' + userId + mediaId + ',' + appUrl);
+      function showWallPostBox(message, ownerId, mediaId, appUrl){
+        console.log('photo' + ownerId + mediaId + ',' + appUrl);
         vkBridge.send('VKWebAppShowWallPostBox', {
           'message': message,
-          'attachments': 'photo' + userId + '_' + mediaId + ',' + appUrl,
+          'attachments': 'photo' + ownerId + '_' + mediaId + ',' + appUrl,
         }).then(data => {
+          console.log("WallPost");
           console.log(data);
+          console.log(JSON.stringify(data));
+          myGameInstance.SendMessage('VKSDK', 'WallPostGetting', JSON.stringify(data));
         });
       }
 
