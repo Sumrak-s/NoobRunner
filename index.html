@@ -162,6 +162,19 @@
         });
       }
 
+      function getFriends(){
+        vkBridge.send("VKWebAppGetFriends", {
+          "multi": true
+        }).then(data => {
+          console.log(data);
+          console.log(JSON.stringify(data));
+        }).catch(message => {
+          console.log('GetFriends Error');
+          console.log(message);
+          console.log(JSON.stringify(message));
+        });
+      }
+
       function getArrayFriends(token){
         vkBridge.send("VKWebAppCallAPIMethod", {
           "method": "friends.get",
