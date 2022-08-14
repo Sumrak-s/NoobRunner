@@ -141,13 +141,9 @@
           'attachments': 'photo' + ownerId + '_' + mediaId + ',' + appUrl,
         }).then(data => {
           console.log("WallPost");
-          console.log(data);
-          console.log(JSON.stringify(data));
           myGameInstance.SendMessage('VKSDK', 'WallPostGetting', JSON.stringify(data));
         }).catch((message) => {
-          console.log(message);
-          console.log(JSON.stringify(message));
-          console.log(message.result);
+          myGameInstance.SendMessage('VKSDK', 'WallPostGetting', JSON.stringify(data));
         });
       }
 
