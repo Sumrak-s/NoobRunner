@@ -143,7 +143,7 @@
           console.log("WallPost");
           myGameInstance.SendMessage('VKSDK', 'WallPostGetting', JSON.stringify(data));
         }).catch((message) => {
-          myGameInstance.SendMessage('VKSDK', 'WallPostGetting', JSON.stringify(data));
+          myGameInstance.SendMessage('VKSDK', 'WallPostGetting', JSON.stringify(message));
         });
       }
 
