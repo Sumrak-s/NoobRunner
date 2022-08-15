@@ -201,6 +201,21 @@
         .catch(error => console.log(error));
       }
 
+      function addAppEvent(token, user_id, activity_id, value){
+        console.log('addAppEvent');
+        vkBridge.send("VKWebAppCallAPIMethod", {
+          "method": "secure.addAppEvent",
+          "request_id": "addAppEvent1", 
+          "params": {
+            "v":"5.131", 
+            "access_token": token,
+            "user_id": user_id,
+            "activity_id": activity_id,
+            "value": value
+          }}).then(data => console.log(data))  
+        .catch(error => console.log(error));
+      }
+
       document.body.appendChild(script);
     </script>
   </body>
