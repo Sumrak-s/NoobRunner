@@ -164,6 +164,10 @@
         });
       }
 
+      function appAllowNotifications(){
+        vkBridge.send("VKWebAppAllowNotifications");
+      }
+
       function showInviteBox(){
         vkBridge.send("VKWebAppShowInviteBox", {
         }).then(data => console.log(data.success))  
