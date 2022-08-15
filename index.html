@@ -186,13 +186,20 @@
         });
       }
 
-      function showLeaderBoardBox(){
-        console.log('ShowLeaderBoardBox');
-        vkBridge.send("VKWebAppShowLeaderBoardBox", {user_result:100})
-         .then(data => console.log(data.success))  
+      function getLeaderboard(token, type, global, extended){
+        console.log('getLeaderboard');
+        vkBridge.send("VKWebAppCallAPIMethod", {
+          "method": "apps.getLeaderboard",
+          "request_id": "getLeaderboard1", 
+          "params": {
+            "v":"5.131", 
+            "access_token": token,
+            "type": type,
+            "global": global,
+            "extended": extended
+          }}).then(data => console.log(data))  
         .catch(error => console.log(error));
       }
-
 
       document.body.appendChild(script);
     </script>
