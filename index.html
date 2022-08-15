@@ -229,7 +229,10 @@
       function isMobile(){
         console.log("ISMOBILE");
         console.log(/iPhone|iPad|iPod|Android/i.test(navigator.userAgent));
-        //myGameInstance.SendMessage('VKSDK', 'CurrentPlatformReceive', JSON.stringify('test'));
+        let mobileCheck = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+        console.log(mobileCheck);
+
+        myGameInstance.SendMessage('VKSDK', 'CurrentPlatformReceive', mobileCheck);
       }
 
       document.body.appendChild(script);
