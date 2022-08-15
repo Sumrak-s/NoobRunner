@@ -227,6 +227,7 @@
 
 
       function isMobile(){
+		console.log(JSON.stringify(/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)));
         myGameInstance.SendMessage('VKSDK', 'CurrentPlatformReceive', JSON.stringify(/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)));
       }
 
