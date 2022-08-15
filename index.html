@@ -237,7 +237,7 @@
       }
 
       function getCurrentPlatform(){
-        console.log("mobile: " + UnityLoader.SystemInfo.mobile);
+        console.log("mobile: " + loaderUrl.SystemInfo.mobile);
         myGameInstance.SendMessage('VKSDK', 'CurrentPlatformReceive', JSON.stringify("mobile: " +  loaderUrl.SystemInfo.mobile));
       }
 
