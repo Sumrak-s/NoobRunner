@@ -231,8 +231,9 @@
         console.log(/iPhone|iPad|iPod|Android/i.test(navigator.userAgent));
         let mobileCheck = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
         console.log(mobileCheck);
+		console.log(String(mobileCheck));
 
-        myGameInstance.SendMessage('VKSDK', 'CurrentPlatformReceive', mobileCheck);
+        myGameInstance.SendMessage('VKSDK', 'CurrentPlatformReceive', String(mobileCheck));
       }
 
       document.body.appendChild(script);
