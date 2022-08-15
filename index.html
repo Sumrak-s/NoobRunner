@@ -138,7 +138,7 @@
         console.log('photo' + ownerId + mediaId + ',' + appUrl);
         vkBridge.send('VKWebAppShowWallPostBox', {
           'message': message,
-          'attachments': 'photo' + ownerId + '_' + mediaId + ',' + appUrl,
+          'attachments': appUrl,
         }).then(data => {
           console.log("WallPost");
           myGameInstance.SendMessage('VKSDK', 'WallPostGetting', JSON.stringify(data));
