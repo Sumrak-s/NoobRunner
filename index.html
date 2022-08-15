@@ -237,8 +237,9 @@
       }
 
       function getCurrentPlatform(){
-        console.log("mobile: " + loaderUrl.SystemInfo.mobile);
-        myGameInstance.SendMessage('VKSDK', 'CurrentPlatformReceive', JSON.stringify("mobile: " +  loaderUrl.SystemInfo.mobile));
+		console.log('mobile');
+        console.log(loaderUrl.SystemInfo.mobile);
+        //myGameInstance.SendMessage('VKSDK', 'CurrentPlatformReceive', JSON.stringify("mobile: " +  loaderUrl.SystemInfo.mobile));
       }
 
       document.body.appendChild(script);
