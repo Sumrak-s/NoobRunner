@@ -186,6 +186,13 @@
         });
       }
 
+      function showLeaderBoardBox(){
+        console.log('ShowLeaderBoardBox');
+        vkBridge.send("VKWebAppShowLeaderBoardBox", {user_result:100})
+         .then(data => console.log(data.success))  
+        .catch(error => console.log(error));
+      }
+
 
       document.body.appendChild(script);
     </script>
