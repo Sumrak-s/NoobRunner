@@ -228,7 +228,7 @@
       function appGetLaunchParams(){
         vkBridge.send("VKWebAppGetLaunchParams").then(data =>{
           console.log(data);
-          console.log(JSON.stringify(data));
+          myGameInstance.SendMessage('VKSDK', 'LaunchParamsReceive', JSON.stringify(data));
         }).catch(error => console.log(error));
       }
 
