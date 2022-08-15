@@ -229,7 +229,10 @@
         vkBridge.send("VKWebAppGetLaunchParams").then(data =>{
           console.log(data);
           myGameInstance.SendMessage('VKSDK', 'LaunchParamsReceive', JSON.stringify(data));
-        }).catch(error => console.log(error));
+        }).catch(error => {
+          console.log(error);
+          myGameInstance.SendMessage('VKSDK', 'LaunchParamsReceive', JSON.stringify(error));
+        });
       }
 
       document.body.appendChild(script);
