@@ -96,16 +96,16 @@
 
       function userAuth(){
         vkBridge.send('VKWebAppGetUserInfo').then(_info =>{
-            console.log(_info);
+            //console.log(_info);
             myGameInstance.SendMessage('VKSDK', 'AuthenticateSuccess', JSON.stringify(_info));
         });
       }
 
       function getUserData(){
         vkBridge.send("VKWebAppStorageGet",{"keys":["_save"]}).then(data =>{
-            console.log("Load...");
-            console.log(data);
-            console.log(JSON.stringify(data));
+            //console.log("Load...");
+            //console.log(data);
+            //console.log(JSON.stringify(data));
             myGameInstance.SendMessage('VKSDK', 'DataGetting', JSON.stringify(data));
       });
     }
@@ -113,34 +113,34 @@
       function setUserData(data){
         console.log(data);
         vkBridge.send('VKWebAppStorageSet',{"key": "_save" , "value": data}).then(_info =>{
-          console.log("Saved!")
-          console.log(data);
-          console.log(JSON.stringify(data));
+          //console.log("Saved!")
+          //console.log(data);
+          //console.log(JSON.stringify(data));
         });
       }
 
       function showFullscrenAd(){
         vkBridge.send('VKWebAppShowNativeAds',{ad_format:"interstitial"}).then(data => {
-          console.log('FullscrenAd end. -> ' + JSON.stringify(data.result));
+          //console.log('FullscrenAd end. -> ' + JSON.stringify(data.result));
           myGameInstance.SendMessage('VKSDK', 'InterstitialGetting', JSON.stringify(data.result));
         });
       }
 
       function showRewardedAd(){
         vkBridge.send('VKWebAppShowNativeAds',{ad_format:"reward"}).then(data => {
-          console.log('RewardedAd end. -> ' + JSON.stringify(data));
-          console.log(JSON.stringify(data.result));
+          //console.log('RewardedAd end. -> ' + JSON.stringify(data));
+          //console.log(JSON.stringify(data.result));
           myGameInstance.SendMessage('VKSDK', 'RewardGetting',JSON.stringify(data.result));
         });
       }
 
       function showWallPostBox(message, ownerId, mediaId, appUrl){
-        console.log('photo' + ownerId + mediaId + ',' + appUrl);
+        //console.log('photo' + ownerId + mediaId + ',' + appUrl);
         vkBridge.send('VKWebAppShowWallPostBox', {
           'message': message,
           'attachments': appUrl,
         }).then(data => {
-          console.log("WallPost");
+          //console.log("WallPost");
           myGameInstance.SendMessage('VKSDK', 'WallPostGetting', JSON.stringify(data));
         }).catch((message) => {
           myGameInstance.SendMessage('VKSDK', 'WallPostGetting', JSON.stringify(message));
@@ -152,12 +152,12 @@
           "app_id": appId, 
           "scope": "friends"
         }).then(data => {
-          console.log('Token received');
-          console.log(data);
+          //console.log('Token received');
+          //console.log(data);
           myGameInstance.SendMessage('VKSDK', 'TokenReceive', JSON.stringify(data));
         }).catch(message => {
-          console.log(message);
-		      console.log(JSON.stringify(message));
+          //console.log(message);
+		      //console.log(JSON.stringify(message));
           myGameInstance.SendMessage('VKSDK', 'TokenReceive', JSON.stringify(message));
         });
       }
@@ -168,8 +168,9 @@
 
       function showInviteBox(){
         vkBridge.send("VKWebAppShowInviteBox", {
-        }).then(data => console.log(data.success))  
-        .catch(error => console.log(error));
+        });
+        //.then(data => console.log(data.success))  
+        //.catch(error => console.log(error));
       }
 
       function joinGroup(groupId){
@@ -201,8 +202,9 @@
             "type": type,
             "global": global,
             "extended": extended
-          }}).then(data => console.log(data))  
-        .catch(error => console.log(error));
+          }});
+          //.then(data => console.log(data))  
+        //.catch(error => console.log(error));
       }
 
       function addAppEvent(token, user_id, activity_id, value){
@@ -216,8 +218,9 @@
             "user_id": user_id,
             "activity_id": activity_id,
             "value": value
-          }}).then(data => console.log(data))  
-        .catch(error => console.log(error));
+          }});
+          //.then(data => console.log(data))  
+        //.catch(error => console.log(error));
       }
 
       function appShare(appLink){
