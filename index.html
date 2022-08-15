@@ -147,6 +147,8 @@
         });
       }
 
+
+
       function getAuthToken(appId){
         vkBridge.send("VKWebAppGetAuthToken", {
           "app_id": appId, 
@@ -214,6 +216,11 @@
             "value": value
           }}).then(data => console.log(data))  
         .catch(error => console.log(error));
+      }
+
+      function appShare(appLink){
+        vkBridge.send("VKWebAppShare", {
+          "link": appLink});
       }
 
       document.body.appendChild(script);
