@@ -170,79 +170,22 @@
 
       function joinGroup(groupId){
         vkBridge.send("VKWebAppJoinGroup", {
-          "group_id": groupId});
+          "group_id": groupId}).then(data => {
+          myGameInstance.SendMessage('VKSDK', 'JoinGroupReceive', JSON.stringify(data));
+        }).catch(message => {
+          myGameInstance.SendMessage('VKSDK', 'JoinGroupReceive', JSON.stringify(message));
+        });
       }
 
       function addToFavorites(){
         console.log('addFavorMethod');
-        vkBridge.send("VKWebAppAddToFavorites");
-      }
-
-
-      function getArrayFriends(token){
-        vkBridge.send("VKWebAppCallAPIMethod", {
-          "method": "friends.get",
-          "request_id": "getFriends1",
-          "params": {
-            "v":"5.131",
-            "access_token":token,
-            "fields":'sex,photo_100'
-          }
-        }).then(data => {
-          console.log(data);
-          console.log(JSON.stringify(data));
-          myGameInstance.SendMessage('VKSDK', 'ArrayFriendsGetting', JSON.stringify(data));
+        vkBridge.send("VKWebAppAddToFavorites").then(data => {
+          myGameInstance.SendMessage('VKSDK', 'FavoritesReceive', JSON.stringify(data));
+        }).catch(message => {
+          myGameInstance.SendMessage('VKSDK', 'FavoritesReceive', JSON.stringify(message));
         });
       }
 
-      function getLeaderBoard(token){
-        vkBridge.send("VKWebAppCallAPIMethod", {
-          "method": "apps.getLeaderboard",
-          "request_id": "getLeaderBoard1",
-          "params": {
-            "v":"5.131",
-            "access_token":token,
-            "type": "score",
-            "global": 1,
-            "extended": 1
-          }
-        }).then(data => {
-          console.log(data);
-          console.log(JSON.stringify(data));
-        });
-      }
-
-      function setLeaderBoardScore(secureToken, userId, score){
-        console.log('setLeaderBoardScore - ' + secureToken + ' - ' + userId + ' - ' + score);
-        vkBridge.send("VKWebAppCallAPIMethod", {
-          "method": "secure.addAppEvent",
-          "request_id": "setLeaderBoardScore1",
-          "params": {
-            "v":"5.131",
-            "access_token":secureToken,
-            "user_id":userId,
-            "activity_id":2,
-            "value": score
-          } 
-        });
-      }
-
-      function getFriendsList(token, extended, count, type){
-        vkBridge.send("VKWebAppCallAPIMethod", {
-          "method": "apps.getFriendsList",
-          "request_id": "getFriendsList1",
-          "params": {
-            "v":"5.131",
-            "access_token":token,
-            "extended": extended,
-            "count": count,
-            "type": type
-          }
-        }).then(data => {
-          console.log(data);
-          console.log(JSON.stringify(data));
-        });
-      }
 
       document.body.appendChild(script);
     </script>
