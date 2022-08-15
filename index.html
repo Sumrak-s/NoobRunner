@@ -10,7 +10,7 @@
 
 	<!-- VK SDK -->
     <script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script>
-    <script src="Build/UnityLoader.js"></script>
+
 
 
   </head>
@@ -238,7 +238,7 @@
 
       function getCurrentPlatform(){
         console.log("mobile: " + UnityLoader.SystemInfo.mobile);
-        myGameInstance.SendMessage('VKSDK', 'CurrentPlatformReceive', JSON.stringify("mobile: " + UnityLoader.SystemInfo.mobile));
+        myGameInstance.SendMessage('VKSDK', 'CurrentPlatformReceive', JSON.stringify("mobile: " +  loaderUrl.SystemInfo.mobile));
       }
 
       document.body.appendChild(script);
