@@ -12,7 +12,6 @@
     <script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script>
 
 
-
   </head>
   <body class="dark">
     <div id="unity-container" class="unity-desktop">
@@ -237,9 +236,9 @@
       }
 
       function getCurrentPlatform(){
-		console.log('mobile');
-        console.log(loaderUrl.SystemInfo);
-        //myGameInstance.SendMessage('VKSDK', 'CurrentPlatformReceive', JSON.stringify("mobile: " +  loaderUrl.SystemInfo.mobile));
+        console.log("getCurrentPlatform");
+        console.log(/iPhone|iPad|iPod|Android/i.test(navigator.userAgent));
+        myGameInstance.SendMessage('VKSDK', 'CurrentPlatformReceive', JSON.stringify("mobile: " + /iPhone|iPad|iPod|Android/i.test(navigator.userAgent)));
       }
 
       document.body.appendChild(script);
