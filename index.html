@@ -81,14 +81,6 @@
           spinner.style.display = "none";
           progressBarEmpty.style.display = "";
           progressBarFull.style.width = `${100 * progress}%`;
-          var lockFunction =  window.screen.orientation.lock;
-          if (lockFunction.call(window.screen.orientation, 'landscape')) {
-           console.log('Orientation locked');
-          } 
-          else {
-            console.error('There was a problem in locking the orientation');
-          }
-
         }).then((unityInstance) => {
 		  myGameInstance  = unityInstance;
 		  
@@ -99,6 +91,8 @@
         });
       };
 	  
+
+
       vkBridge.send('VKWebAppInit');
 
 
@@ -239,10 +233,21 @@
 
       function isMobile(){
         let mobileCheck = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+        var lockFunction =  window.screen.orientation.lock;
+        if (lockFunction.call(window.screen.orientation, 'landscape')) {
+                  console.log('Orientation locked');
+        } else {
+                  console.error('There was a problem in locking the orientation');
+        }
+
         myGameInstance.SendMessage('VKSDK', 'CurrentPlatformReceive', String(mobileCheck));
       }
 
+      
+
       document.body.appendChild(script);
     </script>
+    
   </body>
 </html>
