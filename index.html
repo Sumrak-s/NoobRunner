@@ -83,10 +83,10 @@
           progressBarFull.style.width = `${100 * progress}%`;
           var lockFunction =  window.screen.orientation.lock;
           if (lockFunction.call(window.screen.orientation, 'landscape')) {
-           console.log('Orientation locked')
+           console.log('Orientation locked');
           } 
           else {
-            console.error('There was a problem in locking the orientation')
+            console.error('There was a problem in locking the orientation');
           }
 
         }).then((unityInstance) => {
