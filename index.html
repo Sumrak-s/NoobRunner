@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>NoobRunner</title>
+    <title>JSUnityTest</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">	
 
@@ -38,8 +38,8 @@
         codeUrl: buildUrl + "/Build.wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "GSSGames",
-        productName: "NoobRunner",
-        productVersion: "0.16",
+        productName: "JSUnityTest",
+        productVersion: "1.0",
       };
 
       const container = document.querySelector("#unity-container");
@@ -81,6 +81,9 @@
           spinner.style.display = "none";
           progressBarEmpty.style.display = "";
           progressBarFull.style.width = `${100 * progress}%`;
+          
+
+
         }).then((unityInstance) => {
 		  myGameInstance  = unityInstance;
 		  
@@ -91,8 +94,6 @@
         });
       };
 	  
-
-
       vkBridge.send('VKWebAppInit');
 
 
@@ -233,21 +234,10 @@
 
       function isMobile(){
         let mobileCheck = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-
-        var lockFunction =  window.screen.orientation.lock;
-        if (lockFunction.call(window.screen.orientation, 'landscape')) {
-                  console.log('Orientation locked');
-        } else {
-                  console.error('There was a problem in locking the orientation');
-        }
-
         myGameInstance.SendMessage('VKSDK', 'CurrentPlatformReceive', String(mobileCheck));
       }
 
-      
-
       document.body.appendChild(script);
     </script>
-    
   </body>
 </html>
