@@ -57,7 +57,10 @@
       script.onload = () => {
         console.log("OnLoad");
         console.log(document.hasFocus());
-        
+        console.log(window.hasFocus());
+        window.focus();
+        console.log(document.hasFocus());
+        console.log(window.hasFocus());
 
         createUnityInstance(canvas, config, (progress) => {
           progressBarFull.style.width = 100 * progress + "%";
