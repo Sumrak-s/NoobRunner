@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>Unity WebGL Player | WebGLScreenOrientationDetect</title>
+    <title>Unity WebGL Player | JSUnityTest</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
   </head>
@@ -17,11 +17,9 @@
         </div>
       </div>
       <div id="unity-footer">
-        <button id="btn1" onclick="addClick()">Click Me!</button>
-        <span class="total-clicks"></span>
         <div id="unity-webgl-logo"></div>
         <div id="unity-fullscreen-button"></div>
-        <div id="unity-build-title">WebGLScreenOrientationDetect</div>
+        <div id="unity-build-title">JSUnityTest</div>
       </div>
     </div>
     <script>
@@ -32,9 +30,9 @@
         frameworkUrl: buildUrl + "/Build.framework.js",
         codeUrl: buildUrl + "/Build.wasm",
         streamingAssetsUrl: "StreamingAssets",
-        companyName: "DefaultCompany",
-        productName: "WebGLScreenOrientationDetect",
-        productVersion: "0.1",
+        companyName: "GSSGames",
+        productName: "JSUnityTest",
+        productVersion: "1.0",
       };
 
       var container = document.querySelector("#unity-container");
@@ -52,21 +50,12 @@
       }
       loadingBar.style.display = "block";
 
-      var myGameInstance = null;
-
       var script = document.createElement("script");
       script.src = loaderUrl;
       script.onload = () => {
-
-
         createUnityInstance(canvas, config, (progress) => {
           progressBarFull.style.width = 100 * progress + "%";
         }).then((unityInstance) => {
-          myGameInstance  = unityInstance;
-
-          console.log("OnLoad");
-          console.log(document.fullscreenEnabled);
-
           loadingBar.style.display = "none";
           fullscreenButton.onclick = () => {
             unityInstance.SetFullscreen(1);
@@ -75,36 +64,6 @@
           alert(message);
         });
       };
-
-      function checkHasFocus(){
-        console.log(document.hasFocus());
-        myGameInstance.SendMessage('Test', 'DebugCallback', JSON.stringify(document.hasFocus()));
-      }
-
-      let clicks = 0;
-
-      function addClick() {
-            clicks = clicks + 1;
-            document.querySelector('.total-clicks').textContent
-                        = clicks;
-        }
-  
-        // Simulate click function
-        function clickButton() {
-            click_event = new CustomEvent('click');
-            btn_element = document.querySelector('#btn1');
-            btn_element.dispatchEvent(click_event);
-            myGameInstance.SendMessage('Test', 'DebugCallback', JSON.stringify(clicks));
-        }
-  
-        // Simulate a click every second
-        //setInterval(clickButton, 1000);
-        
-        setInterval(() => {
-          document.getElementById('btn1').dispatchEvent(new MouseEvent('click', {shiftKey: true}));
-          myGameInstance.SendMessage('Test', 'DebugCallback', JSON.stringify(clicks));
-        }, 100);
-
       document.body.appendChild(script);
     </script>
   </body>
