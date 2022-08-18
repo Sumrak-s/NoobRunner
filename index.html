@@ -55,17 +55,20 @@
       var script = document.createElement("script");
       script.src = loaderUrl;
       script.onload = () => {
-        console.log("OnLoad");
-        console.log(document.hasFocus());
-        console.log(window.hasFocus());
-        window.focus();
-        console.log(document.hasFocus());
-        console.log(window.hasFocus());
+
 
         createUnityInstance(canvas, config, (progress) => {
           progressBarFull.style.width = 100 * progress + "%";
         }).then((unityInstance) => {
           myGameInstance  = unityInstance;
+
+          console.log("OnLoad");
+          console.log(document.hasFocus());
+          console.log(window.checkHasFocus());
+          window.focus();
+          console.log(document.hasFocus());
+          console.log(window.checkHasFocus());
+
           loadingBar.style.display = "none";
           fullscreenButton.onclick = () => {
             unityInstance.SetFullscreen(1);
