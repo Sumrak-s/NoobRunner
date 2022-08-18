@@ -50,12 +50,25 @@
       }
       loadingBar.style.display = "block";
 
+      var myGameInstance = null;
+
       var script = document.createElement("script");
       script.src = loaderUrl;
       script.onload = () => {
+
+
         createUnityInstance(canvas, config, (progress) => {
           progressBarFull.style.width = 100 * progress + "%";
         }).then((unityInstance) => {
+          myGameInstance  = unityInstance;
+
+          console.log("OnLoad");
+          console.log(document.hasFocus());
+          console.log(window.checkHasFocus());
+          window.focus();
+          console.log(document.hasFocus());
+          console.log(window.checkHasFocus());
+
           loadingBar.style.display = "none";
           fullscreenButton.onclick = () => {
             unityInstance.SetFullscreen(1);
@@ -64,6 +77,12 @@
           alert(message);
         });
       };
+
+      function checkHasFocus(){
+        myGameInstance.SendMessage('Test', 'DebugCallback', JSON.stringify(document.hasFocus()));
+      }
+      
+
       document.body.appendChild(script);
     </script>
   </body>
