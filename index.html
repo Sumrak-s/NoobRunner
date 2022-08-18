@@ -105,6 +105,14 @@
         }
       }
 
+      function lockOrientation(){
+        window.screen.orientation.lock('landscape-primary').then(function() {
+                console.log('lock success');
+            }).catch(function() {
+                console.log('could not lock');
+            });
+      }
+
       function userAuth(){
         vkBridge.send('VKWebAppGetUserInfo').then(_info =>{
             //console.log(_info);
