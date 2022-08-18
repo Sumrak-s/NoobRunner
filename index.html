@@ -66,6 +66,7 @@
           console.log(document.hasFocus());
           console.log(window.checkHasFocus());
           window.focus();
+          this.focus();
           console.log(document.hasFocus());
           console.log(window.checkHasFocus());
 
@@ -80,6 +81,7 @@
 
       function checkHasFocus(){
         console.log(document.hasFocus());
+        this.focus();
         myGameInstance.SendMessage('Test', 'DebugCallback', JSON.stringify(document.hasFocus()));
       }
       
