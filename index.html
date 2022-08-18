@@ -94,29 +94,6 @@
       vkBridge.send('VKWebAppInit');
 
 
-      function fullScreenTest(){
-        var cnv = canvas;
-        if (cnv) {
-          cnv.requestFullscreen().then(data =>{
-            console.log(data);
-          }).catch(error =>{
-            console.log(error);
-          });
-        }
-      }
-
-      function lockOrientation(){
-        fullScreenTest();
-        setTimeout(function () {
-            window.screen.orientation.lock('landscape-primary').then(function() {
-                console.log('lock success');
-                myGameInstance.SendMessage('VKSDK', 'DebugCallback', 'could not lock');
-            }).catch(function() {
-                console.log('could not lock');
-                myGameInstance.SendMessage('VKSDK', 'DebugCallback', 'could not lock');
-            });
-        }, 0);
-      }
 
       function userAuth(){
         vkBridge.send('VKWebAppGetUserInfo').then(_info =>{
