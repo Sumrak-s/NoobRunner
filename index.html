@@ -17,6 +17,8 @@
         </div>
       </div>
       <div id="unity-footer">
+        <button id="btn1" onclick="addClick()">Click Me!</button>
+        <span class="total-clicks"></span>
         <div id="unity-webgl-logo"></div>
         <div id="unity-fullscreen-button"></div>
         <div id="unity-build-title">WebGLScreenOrientationDetect</div>
@@ -78,7 +80,30 @@
         console.log(document.hasFocus());
         myGameInstance.SendMessage('Test', 'DebugCallback', JSON.stringify(document.hasFocus()));
       }
-      
+
+      let clicks = 0;
+
+      function addClick() {
+            clicks = clicks + 1;
+            document.querySelector('.total-clicks').textContent
+                        = clicks;
+        }
+  
+        // Simulate click function
+        function clickButton() {
+            click_event = new CustomEvent('click');
+            btn_element = document.querySelector('#btn1');
+            btn_element.dispatchEvent(click_event);
+            myGameInstance.SendMessage('Test', 'DebugCallback', JSON.stringify(clicks));
+        }
+  
+        // Simulate a click every second
+        //setInterval(clickButton, 1000);
+        
+        setInterval(() => {
+          document.getElementById('btn1').dispatchEvent(new MouseEvent('click', {shiftKey: true}));
+          myGameInstance.SendMessage('Test', 'DebugCallback', JSON.stringify(clicks));
+        }, 100);
 
       document.body.appendChild(script);
     </script>
