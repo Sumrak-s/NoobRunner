@@ -94,6 +94,17 @@
       vkBridge.send('VKWebAppInit');
 
 
+      function fullScreenTest(){
+        var cnv = canvas;
+        if (cnv) {
+          cnv.requestFullscreen().then(data =>{
+            console.log(data);
+          }).catch(error =>{
+            console.log(error);
+          });
+        }
+      }
+
       function userAuth(){
         vkBridge.send('VKWebAppGetUserInfo').then(_info =>{
             //console.log(_info);
