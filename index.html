@@ -110,7 +110,6 @@
         setTimeout(function () {
             window.screen.orientation.lock('landscape-primary').then(function() {
                 console.log('lock success');
-                JS_OrientationDetectorLib_Context.isScreenLock = true;
                 myGameInstance.SendMessage('VKSDK', 'DebugCallback', 'could not lock');
             }).catch(function() {
                 console.log('could not lock');
