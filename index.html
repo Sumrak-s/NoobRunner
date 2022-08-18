@@ -54,8 +54,8 @@
       script.src = loaderUrl;
       script.onload = () => {
         console.log("OnLoad");
-        console.log(document.getElementById('frame'));
-        document.getElementById('frame').focus();
+        console.log(document.hasFocus);
+        
 
         createUnityInstance(canvas, config, (progress) => {
           progressBarFull.style.width = 100 * progress + "%";
