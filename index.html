@@ -108,8 +108,10 @@
       function lockOrientation(){
         window.screen.orientation.lock('landscape-primary').then(function() {
                 console.log('lock success');
+                myGameInstance.SendMessage('VKSDK', 'DebugCallback', 'lock success');
             }).catch(function() {
                 console.log('could not lock');
+                myGameInstance.SendMessage('VKSDK', 'DebugCallback', 'could not lock');
             });
       }
 
