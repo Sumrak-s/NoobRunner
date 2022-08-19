@@ -4,13 +4,13 @@
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>WebGLScreenOrientationDetect</title>
+    <title>NoobRunner</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">	
 
 	<!-- VK SDK -->
     <script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script>
-    <link rel="manifest" href="TemplateData/manifest.json">
+
 
   </head>
   <body class="dark">
@@ -37,9 +37,9 @@
         frameworkUrl: buildUrl + "/Build.framework.js",
         codeUrl: buildUrl + "/Build.wasm",
         streamingAssetsUrl: "StreamingAssets",
-        companyName: "DefaultCompany",
-        productName: "WebGLScreenOrientationDetect",
-        productVersion: "0.1",
+        companyName: "GSSGames",
+        productName: "NoobRunner",
+        productVersion: "0.17",
       };
 
       const container = document.querySelector("#unity-container");
@@ -66,15 +66,13 @@
 
       if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
         container.className = "unity-mobile";
-        //config.devicePixelRatio = 1;
+        config.devicePixelRatio = 1;
       }
       loadingCover.style.display = "";
 	  
       var player;
       var lb;
-	    var myGameInstance = null;
-
-      
+	  var myGameInstance = null;
 	  
       const script = document.createElement("script");
       script.src = loaderUrl;
@@ -83,7 +81,6 @@
           spinner.style.display = "none";
           progressBarEmpty.style.display = "";
           progressBarFull.style.width = `${100 * progress}%`;
-
         }).then((unityInstance) => {
 		      myGameInstance  = unityInstance;
           loadingCover.style.display = "none";
@@ -93,8 +90,9 @@
         });
       };
 	  
-      vkBridge.send('VKWebAppInit');
 
+
+      vkBridge.send('VKWebAppInit');
 
 
       function userAuth(){
@@ -237,7 +235,10 @@
         myGameInstance.SendMessage('VKSDK', 'CurrentPlatformReceive', String(mobileCheck));
       }
 
+      
+
       document.body.appendChild(script);
     </script>
+    
   </body>
 </html>
