@@ -127,7 +127,7 @@
           //console.log('FullscrenAd end. -> ' + JSON.stringify(data.result));
           myGameInstance.SendMessage('VKSDK', 'InterstitialGetting', JSON.stringify(data.result));
         }).catch(e =>{
-          myGameInstance.SendMessage('VKSDK', 'RewardError',JSON.stringify(e));
+          myGameInstance.SendMessage('VKSDK', 'AdblockDetect',JSON.stringify(e));
         });
       }
 
@@ -137,7 +137,7 @@
           //console.log(JSON.stringify(data.result));
           myGameInstance.SendMessage('VKSDK', 'RewardGetting',JSON.stringify(data.result));
         }).catch(e =>{
-          myGameInstance.SendMessage('VKSDK', 'RewardError',JSON.stringify(e));
+          myGameInstance.SendMessage('VKSDK', 'AdblockDetect',JSON.stringify(e));
         });
       }
 
