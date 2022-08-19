@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>JSUnityTest</title>
+    <title>WebGLScreenOrientationDetect</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">	
 
@@ -37,9 +37,9 @@
         frameworkUrl: buildUrl + "/Build.framework.js",
         codeUrl: buildUrl + "/Build.wasm",
         streamingAssetsUrl: "StreamingAssets",
-        companyName: "GSSGames",
-        productName: "JSUnityTest",
-        productVersion: "1.0",
+        companyName: "DefaultCompany",
+        productName: "WebGLScreenOrientationDetect",
+        productVersion: "0.1",
       };
 
       const container = document.querySelector("#unity-container");
@@ -235,13 +235,6 @@
       function isMobile(){
         let mobileCheck = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
         myGameInstance.SendMessage('VKSDK', 'CurrentPlatformReceive', String(mobileCheck));
-      }
-
-      function appScroll(){
-        vkBridge.send("VKWebAppScroll", {"top": 1, "speed": 600}).then(data => {
-          console.log("AppScroll");
-          console.log(data);
-        });
       }
 
       document.body.appendChild(script);
