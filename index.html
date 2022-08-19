@@ -237,6 +237,13 @@
         myGameInstance.SendMessage('VKSDK', 'CurrentPlatformReceive', String(mobileCheck));
       }
 
+      function AppScroll(){
+        vkBridge.send("VKWebAppScroll", {"top": 1, "speed": 600}).then(data => {
+          console.log("AppScroll");
+          console.log(data);
+        });
+      }
+
       document.body.appendChild(script);
     </script>
   </body>
