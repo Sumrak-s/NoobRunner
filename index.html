@@ -11,21 +11,10 @@
 	<!-- VK SDK -->
     <script src="https://unpkg.com/@vkontakte/vk-bridge/dist/browser.min.js"></script>
 
-  <style>
-    @media only screen and (orientation: portrait){
-      body{
-        height: 100vw;
-        margin: 0;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        transform: rotate(90deg);
-      }
-    }
-  </style>
+
   </head>
   <body class="dark">
-    <div id="unity-container" class="unity-desktop">
+    <div id="unity-container" style="position: absolute; width: 100%; height: 100%; transform: rotate(90deg);" class="unity-desktop">
       <canvas id="unity-canvas"></canvas>
     </div>
     <div id="loading-cover" style="display:none;">
