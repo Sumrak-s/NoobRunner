@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-    <title>JSUnityTest</title>
+    <title>NoobRunner</title>
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">	
 
@@ -38,8 +38,8 @@
         codeUrl: buildUrl + "/Build.wasm",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "GSSGames",
-        productName: "JSUnityTest",
-        productVersion: "1.0",
+        productName: "NoobRunner",
+        productVersion: "0.17",
       };
 
       const container = document.querySelector("#unity-container");
@@ -106,19 +106,19 @@
 
       function getUserData(){
         vkBridge.send("VKWebAppStorageGet",{"keys":["_save"]}).then(data =>{
-            console.log("Load...");
-            console.log(data);
-            console.log(JSON.stringify(data));
+            //console.log("Load...");
+            //console.log(data);
+            //console.log(JSON.stringify(data));
             myGameInstance.SendMessage('VKSDK', 'DataGetting', JSON.stringify(data));
       });
     }
 
       function setUserData(data){
-        console.log("Saved!");
-        console.log(data);
+        //console.log("Saved!");
+        //console.log(data);
         vkBridge.send('VKWebAppStorageSet',{"key": "_save" , "value": data}).then(_info =>{
-          console.log(data);
-          console.log(JSON.stringify(data));
+          //console.log(data);
+          //console.log(JSON.stringify(data));
         });
       }
 
