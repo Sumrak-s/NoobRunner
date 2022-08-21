@@ -33,13 +33,13 @@
       const buildUrl = "Build";
       const loaderUrl = buildUrl + "/Build.loader.js";
       const config = {
-        dataUrl: buildUrl + "/Build.data",
-        frameworkUrl: buildUrl + "/Build.framework.js",
-        codeUrl: buildUrl + "/Build.wasm",
+        dataUrl: buildUrl + "/Build.data.gz",
+        frameworkUrl: buildUrl + "/Build.framework.js.gz",
+        codeUrl: buildUrl + "/Build.wasm.gz",
         streamingAssetsUrl: "StreamingAssets",
         companyName: "GSSGames",
         productName: "NoobRunner",
-        productVersion: "0.17",
+        productVersion: "0.20",
       };
 
       const container = document.querySelector("#unity-container");
@@ -190,7 +190,7 @@
       }
 
       function addToFavorites(){
-        console.log('addFavorMethod');
+        //console.log('addFavorMethod');
         vkBridge.send("VKWebAppAddToFavorites").then(data => {
           myGameInstance.SendMessage('VKSDK', 'FavoritesReceive', JSON.stringify(data));
         }).catch(message => {
@@ -199,7 +199,7 @@
       }
 
       function getLeaderboard(token, type, global, extended){
-        console.log('getLeaderboard');
+        //console.log('getLeaderboard');
         vkBridge.send("VKWebAppCallAPIMethod", {
           "method": "apps.getLeaderboard",
           "request_id": "getLeaderboard1", 
@@ -215,7 +215,7 @@
       }
 
       function addAppEvent(token, user_id, activity_id, value){
-        console.log('addAppEvent');
+        //console.log('addAppEvent');
         vkBridge.send("VKWebAppCallAPIMethod", {
           "method": "secure.addAppEvent",
           "request_id": "addAppEvent1", 
